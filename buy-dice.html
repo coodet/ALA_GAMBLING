@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Dice - ALA Gambling</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/dice.css">
+</head>
+<body>
+    <header>
+        <h1>Buy Cool Dice</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="buy-dice.html" class="nav-link">Buy Dice</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dice-shop">
+            <h2>Our Dice Collection</h2>
+            <div class="dice-container">
+                <!-- Dice Item 1 -->
+                <div class="dice-item">
+                    <img src="images/dice1.jpg" alt="Red & Gold Dice">
+                    <p>Red & Gold Dice - $100</p>
+                    <button class="buy-btn" onclick="buyDice('Red & Gold Dice', 100)">Buy Now</button>
+                </div>
+
+                <!-- Dice Item 2 -->
+                <div class="dice-item">
+                    <img src="images/dice2.jpg" alt="Blue Swirl Dice">
+                    <p>Blue Swirl Dice - $120</p>
+                    <button class="buy-btn" onclick="buyDice('Blue Swirl Dice', 120)">Buy Now</button>
+                </div>
+
+                <!-- Dice Item 3 -->
+                <div class="dice-item">
+                    <img src="images/dice3.jpg" alt="Glow-in-the-Dark Dice">
+                    <p>Glow-in-the-Dark Dice - $150</p>
+                    <button class="buy-btn" onclick="buyDice('Glow-in-the-Dark Dice', 150)">Buy Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ALA Gambling. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts/dice.js"></script>
+</body>
+</html>
