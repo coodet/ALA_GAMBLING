@@ -1,128 +1,131 @@
-/* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #1b1b1b;
-    color: #fff;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    background-image: url('https://th.bing.com/th/id/R.2b365175eb09f1872d25bf37b572de48?rik=n9Ixpp5wKv%2ba6w&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f5%2fd%2f7%2f767118-dice-wallpaper-1920x1200-for-4k.jpg&ehk=L4xNmtdgkyU1VnquEFkGjLT6vfBEk27MRU2euJOThLE%3d&risl=&pid=ImgRaw&r=0');
+    background-size: cover;
+    background-position: center;
     margin: 0;
-    padding: 0;
     text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.6;
 }
 
-/* Header */
-header {
-    background: linear-gradient(90deg, #ffcc00, #ff6600);
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+#wallet {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 50, 0, 0.8);
+    padding: 10px 15px;
+    color: #00ff00;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.container {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 h1 {
-    margin: 0;
-    font-size: 2.5em;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #00ff00;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
-/* Navigation Bar */
-nav {
-    background-color: #222;
-    padding: 10px 0;
+p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    color: #ddd;
 }
 
-nav a {
-    color: #ffcc00;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 14px 20px;
-    margin: 0 10px;
-    transition: 0.3s ease-in-out;
-}
-
-nav a:hover {
-    color: #ff6600;
-    border-bottom: 2px solid #ffcc00;
-}
-
-/* Main Content */
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Section Styling */
-section {
-    background-color: #333;
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(255, 204, 0, 0.3);
-}
-
-/* Buttons */
 button {
-    background: linear-gradient(90deg, #ffcc00, #ff6600);
-    border: none;
-    padding: 12px 20px;
-    font-size: 18px;
-    font-weight: bold;
+    background-color: #00ff00;
     color: black;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: none;
     cursor: pointer;
-    border-radius: 6px;
-    transition: 0.3s ease-in-out;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(255, 204, 0, 0.5);
+    background-color: #32cd32;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* Dice Shop Styling */
-.dice-container {
+.product-row {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.dice-item {
-    background-color: #222;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(255, 204, 0, 0.3);
-    text-align: center;
-    width: 250px;
-}
-
-.dice-item img {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.dice-item p {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffcc00;
-}
-
-/* Username Display */
-#username-display {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    background-color: #444;
-    padding: 8px 12px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(255, 204, 0, 0.5);
-}
-
-/* Footer */
-footer {
-    background-color: #111;
-    color: #ffcc00;
-    padding: 10px;
-    text-align: center;
+    justify-content: space-around;
     margin-top: 20px;
+    gap: 20px;
+}
+
+.product {
+    text-align: center;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    transition: 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+.product h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #00ff00;
+}
+
+.product p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+#storageList {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #00ff00;
+    font-family: 'Georgia', serif;
+    text-align: left;
+    padding: 0 20px;
+}
+
+#storageList p {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+#homeButton, #shopButton, #storageButton {
+    font-size: 1.2rem;
+    background-color: #32cd32;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#homeButton:hover, #shopButton:hover, #storageButton:hover {
+    background-color: #00ff00;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }

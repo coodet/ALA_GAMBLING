@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaos Dice - Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="wallet">Wallet: $<span id="walletAmount">0</span></div>
+
+    <div class="container">
+        <h1>Chaos Dice Shop</h1>
+        <p>Choose your dice pack and open it to see if you win big!</p>
+        
+        <div class="product-row">
+            <div class="product">
+                <h2>Chaos Dice Pack 1 - $5</h2>
+                <p>Standard dice pack with 6 sides.</p>
+                <button class="buyButton" data-price="5" data-pack="Chaos Dice Pack 1">Buy Pack 1</button>
+                <button class="openButton hidden" data-price="5" data-pack="Chaos Dice Pack 1">Open Pack 1</button>
+            </div>
+
+            <div class="product">
+                <h2>Chaos Dice Pack 2 - $7</h2>
+                <p>Advanced dice pack with unique colors.</p>
+                <button class="buyButton" data-price="7" data-pack="Chaos Dice Pack 2">Buy Pack 2</button>
+                <button class="openButton hidden" data-price="7" data-pack="Chaos Dice Pack 2">Open Pack 2</button>
+            </div>
+
+            <div class="product">
+                <h2>Chaos Dice Pack 3 - $10</h2>
+                <p>Premium dice pack with 12 sides.</p>
+                <button class="buyButton" data-price="10" data-pack="Chaos Dice Pack 3">Buy Pack 3</button>
+                <button class="openButton hidden" data-price="10" data-pack="Chaos Dice Pack 3">Open Pack 3</button>
+            </div>
+        </div>
+
+        <div class="product-row">
+            <div class="product">
+                <h2>Chaos Dice Pack 4 - $12</h2>
+                <p>Exclusive dice pack with custom designs.</p>
+                <button class="buyButton" data-price="12" data-pack="Chaos Dice Pack 4">Buy Pack 4</button>
+                <button class="openButton hidden" data-price="12" data-pack="Chaos Dice Pack 4">Open Pack 4</button>
+            </div>
+
+            <div class="product">
+                <h2>Chaos Dice Pack 5 - $15</h2>
+                <p>Deluxe pack with metallic finish.</p>
+                <button class="buyButton" data-price="15" data-pack="Chaos Dice Pack 5">Buy Pack 5</button>
+                <button class="openButton hidden" data-price="15" data-pack="Chaos Dice Pack 5">Open Pack 5</button>
+            </div>
+
+            <div class="product">
+                <h2>Chaos Dice Pack 6 - $20</h2>
+                <p>Ultimate dice pack with holographic effect.</p>
+                <button class="buyButton" data-price="20" data-pack="Chaos Dice Pack 6">Buy Pack 6</button>
+                <button class="openButton hidden" data-price="20" data-pack="Chaos Dice Pack 6">Open Pack 6</button>
+            </div>
+        </div>
+
+        <a href="index.html"><button id="homeButton">Back to Home</button></a>
+        <a href="storage.html"><button id="storageButton">View Storage</button></a>
+    </div>
+
+    <script src="wallet.js"></script>
+    <script src="dice.js"></script>
+</body>
+</html>
