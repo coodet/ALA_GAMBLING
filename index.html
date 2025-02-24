@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALA Gambling</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Check if user is logged in, if not redirect to auth.html
+        if (!localStorage.getItem("loggedIn")) {
+            window.location.href = "auth.html"; // Redirect if not logged in
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -14,36 +20,36 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="games.html">Games</a></li>
                 <li><a href="buy-dice.html">Buy Dice</a></li>
-                <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <button id="logout-btn">Logout</button>
     </header>
-    
+
     <main>
         <section>
             <h2>About Us</h2>
             <p>Learn more about our services and offerings.</p>
         </section>
-        
         <section>
             <h2>Games</h2>
             <p>Explore the variety of games we offer.</p>
         </section>
-
-        <section id="shop">
-            <h2>Buy Dice</h2>
-            <p>Looking for high-quality, cool-looking dice? Check out our collection!</p>
-            <a href="buy-dice.html">
-                <button id="buyDiceBtn">Buy Dice</button>
-            </a>
-        </section>
     </main>
 
     <footer>
-        <p>&copy; 1928 ALA Gambling. All rights reserved.</p>
+        <p>&copy; 2024 ALA Gambling. All rights reserved.</p>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
+    <script>
+        // Logout functionality
+        const logoutBtn = document.getElementById("logout-btn");
+        logoutBtn.addEventListener("click", () => {
+            // Clear login state and redirect to auth.html
+            localStorage.removeItem("loggedIn");
+            window.location.href = "auth.html";
+        });
+    </script>
 </body>
 </html>

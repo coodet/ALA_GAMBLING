@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game - ALA Gambling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Roll Your Dice</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="buy-dice.html">Buy Dice</a>
+            <a href="games.html">Play Game</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="game-area">
+            <h2>Roll Your Dice</h2>
+            <p>Select a dice and roll it!</p>
+
+            <div class="dice-selection">
+                <label for="dice-type">Choose Your Dice:</label>
+                <select id="dice-type">
+                    <option value="6">6-Sided Dice</option>
+                    <option value="12">12-Sided Dice</option>
+                    <option value="20">20-Sided Dice</option>
+                </select>
+            </div>
+
+            <button id="roll-btn">Roll Dice</button>
+            <p id="dice-result">🎲 Result: <span id="result-number">-</span></p>
+            <img id="dice-image" src="images/dice-placeholder.png" alt="Dice Image">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ALA Gambling. All rights reserved.</p>
+    </footer>
+
+    <script src="games.js"></script>
+</body>
+</html>
