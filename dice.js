@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const walletAmount = localStorage.getItem("wallet") ? parseInt(localStorage.getItem("wallet")) : 100;
+    let walletAmount = localStorage.getItem("wallet") ? parseInt(localStorage.getItem("wallet")) : 100;
     const walletDisplay = document.getElementById("walletAmount");
     walletDisplay.textContent = walletAmount;
 
