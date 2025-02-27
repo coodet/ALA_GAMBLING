@@ -1,31 +1,49 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const buyButton = document.getElementById('buyButton');
-    const rollButton = document.getElementById('rollButton');
+    const buyButton = document.getElementById("buyButton");
+    const rollButton = document.getElementById("rollButton");
+    const purchaseSection = document.getElementById("purchaseSection");
+    const diceSection = document.getElementById("diceSection");
+    const resultDisplay = document.getElementById("result");
 
-    if (buyButton) {
-        buyButton.addEventListener('click', handlePurchase);
-    }
+    // Attach event listeners only if elements exist
+    buyButton?.addEventListener("click", handlePurchase);
+    rollButton?.addEventListener("click", rollDice);
 
-    if (rollButton) {
-        rollButton.addEventListener('click', rollDice);
-    }
-
+    /** Handles purchasing the Chaos Dice Pack */
     function handlePurchase() {
-        const purchaseSection = document.getElementById('purchaseSection');
-        const diceSection = document.getElementById('diceSection');
+        if (!purchaseSection || !diceSection) return;
 
-        if (purchaseSection) purchaseSection.style.display = 'none';
-        if (diceSection) diceSection.style.display = 'block';
+        purchaseSection.style.display = "none";
+        diceSection.style.display = "block";
 
-        alert("You've purchased your Chaos Dice Pack! Ready to roll!");
+        showAlert("You've purchased your Chaos Dice Pack! Ready to roll!", "success");
     }
 
+    /** Rolls a dice and displays the result */
     function rollDice() {
-        const randomNumber = Math.floor(Math.random() * 6) + 1; 
-        const resultDisplay = document.getElementById('result');
-        
-        if (resultDisplay) {
-            resultDisplay.textContent = `You rolled a ${randomNumber}`;
-        }
+        if (!resultDisplay) return;
+
+        const randomNumber = Math.floor(Math.random() * 6) + 1;
+        resultDisplay.textContent = `🎲 You rolled a ${randomNumber}`;
+        resultDisplay.style.animation = "fadeIn 0.5s ease-in-out"; // Adds smooth animation
+
+        // Reset animation to allow repeated rolls
+        setTimeout(() => {
+            resultDisplay.style.animation = "";
+        }, 500);
+    }
+
+    /** Displays an alert with a given message and type */
+    function showAlert(message, type = "info") {
+        const alertBox = document.createElement("div");
+        alertBox.className = `alert alert-${type}`;
+        alertBox.textContent = message;
+
+        document.body.appendChild(alertBox);
+
+        setTimeout(() => {
+            alertBox.style.opacity = "0";
+            setTimeout(() => alertBox.remove(), 500);
+        }, 2000);
     }
 });
