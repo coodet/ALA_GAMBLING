@@ -5,17 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaos Dice - Home</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('https://th.bing.com/th/id/R.2b365175eb09f1872d25bf37b572de48?rik=n9Ixpp5wKv%2ba6w&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f5%2fd%2f7%2f767118-dice-wallpaper-1920x1200-for-4k.jpg&ehk=L4xNmtdgkyU1VnquEFkGjLT6vfBEk27MRU2euJOThLE%3d&risl=&pid=ImgRaw&r=0');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .wallet-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .wallet-container p {
+            margin: 0;
+            font-size: 16px;
+        }
+        .logout-btn {
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .logout-btn:hover {
+            background-color: darkred;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
 </head>
 <body>
-    <div id="wallet">Wallet: $<span id="walletAmount">0</span></div>
+    <script>
+        if (localStorage.getItem("verified") !== "true") {
+            window.location.href = "welcome.html";
+        }
+    </script>
+
+    <div class="wallet-container">
+        <p><strong>Wallet:</strong> $<span id="wallet"></span> | <strong>User:</strong> <span id="username"></span></p>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
 
     <div class="container">
         <h1>Welcome to Chaos Dice</h1>
         <p>Get ready for some chaotic fun! Buy your Chaos Dice pack and roll your fate.</p>
-        <a href="shop.html"><button id="shopButton">Go to the Shop</button></a>
-        <a href="storage.html"><button id="storageButton">View Storage</button></a>
+        <a href="shop.html">
+            <button id="shopButton">Go to the Shop</button>
+        </a>
     </div>
 
-    <script src="wallet.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const username = localStorage.getItem("username") || "Guest";
+            document.getElementById("username").innerText = username;
+
+            let walletBalance = localStorage.getItem("wallet");
+            if (!walletBalance) {
+                walletBalance = 100; 
+                localStorage.setItem("wallet", walletBalance);
+            }
+            document.getElementById("wallet").innerText = walletBalance;
+        });
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = "welcome.html";
+        }
+    </script>
 </body>
 </html>

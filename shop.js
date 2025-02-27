@@ -9,7 +9,7 @@ document.getElementById('rollButton').addEventListener('click', rollDice);
 function handlePurchase(event) {
     selectedPack = event.target.getAttribute('data-pack');
     
-    // Hide the shop products and show the dice roller
+    
     document.querySelectorAll('.product').forEach(product => {
         product.style.display = 'none';
     });
@@ -25,7 +25,7 @@ function rollDice() {
     else if (selectedPack === '3') sides = 12;
     else if (selectedPack === '4') sides = 10;
     else if (selectedPack === '5') sides = 20;
-    else if (selectedPack === '6') sides = 20; // For a holographic pack, let's assume a 20-sided die
+    else if (selectedPack === '6') sides = 50; 
 
     const randomNumber = Math.floor(Math.random() * sides) + 1;
     document.getElementById('result').textContent = `You rolled a ${randomNumber} on your Pack ${selectedPack} dice!`;

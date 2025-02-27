@@ -1,19 +1,31 @@
-// Event listener for the "Buy Dice Pack" button
-document.getElementById('buyButton').addEventListener('click', handlePurchase);
+document.addEventListener("DOMContentLoaded", function () {
+    const buyButton = document.getElementById('buyButton');
+    const rollButton = document.getElementById('rollButton');
 
-// Event listener for the "Roll the Dice" button (only available after purchase)
-document.getElementById('rollButton').addEventListener('click', rollDice);
+    if (buyButton) {
+        buyButton.addEventListener('click', handlePurchase);
+    }
 
-function handlePurchase() {
-    // Hide the purchase section and show the dice section
-    document.getElementById('purchaseSection').style.display = 'none';
-    document.getElementById('diceSection').style.display = 'block';
+    if (rollButton) {
+        rollButton.addEventListener('click', rollDice);
+    }
 
-    // Optional: Show a message that the user has purchased the dice
-    alert("You've purchased your Chaos Dice Pack! Ready to roll!");
-}
+    function handlePurchase() {
+        const purchaseSection = document.getElementById('purchaseSection');
+        const diceSection = document.getElementById('diceSection');
 
-function rollDice() {
-    const randomNumber = Math.floor(Math.random() * 6) + 1; // Generates a number between 1 and 6
-    document.getElementById('result').textContent = `You rolled a ${randomNumber}`;
-}
+        if (purchaseSection) purchaseSection.style.display = 'none';
+        if (diceSection) diceSection.style.display = 'block';
+
+        alert("You've purchased your Chaos Dice Pack! Ready to roll!");
+    }
+
+    function rollDice() {
+        const randomNumber = Math.floor(Math.random() * 6) + 1; 
+        const resultDisplay = document.getElementById('result');
+        
+        if (resultDisplay) {
+            resultDisplay.textContent = `You rolled a ${randomNumber}`;
+        }
+    }
+});

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const walletDisplay = document.getElementById("walletAmount");
     walletDisplay.textContent = walletAmount;
 
-    // Retrieve the purchased dice from localStorage
+    
     const purchasedDice = JSON.parse(localStorage.getItem("purchasedDice")) || [];
     const storageList = document.getElementById("storageList");
 
