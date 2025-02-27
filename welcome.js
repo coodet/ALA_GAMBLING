@@ -6,12 +6,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const age = parseInt(document.getElementById("age").value);
 
+        
+        if (isNaN(age) || age <= 0) {
+            alert("Please enter a valid age.");
+            return; 
+        }
+
         if (age >= 21) {
             localStorage.setItem("verified", "true"); 
             window.location.href = "index.html"; 
         } else {
             alert("You must be at least 21 years old to enter.");
-            window.location.href = "https://www.responsibility.org"; 
+            setTimeout(function () {
+                window.location.href = "https://www.fortismedia.com/en/articles/online-gambling-laws/"; 
+            }, 2000); 
         }
     });
 });
