@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let walletAmount = localStorage.getItem("wallet") ? parseInt(localStorage.getItem("wallet")) : 100;
+    let walletAmount = Number(localStorage.getItem("wallet")) || 100;
     const walletDisplay = document.getElementById("walletAmount");
     walletDisplay.textContent = walletAmount;
 
@@ -10,22 +10,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const buyButtons = document.querySelectorAll(".buyButton");
-    buyButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const price = parseInt(this.getAttribute("data-price"));
-            const packName = this.getAttribute("data-pack");
+    if (buyButtons.length > 0) {
+        buyButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const price = Number(this.getAttribute("data-price"));
+                const packName = this.getAttribute("data-pack");
 
-            if (walletAmount >= price) {
-                updateWallet(-price);
-                alert(`You purchased ${packName}!`);
+                if (walletAmount >= price) {
+                    updateWallet(-price);
+                    alert(`You purchased ${packName}!`);
 
-                // Show the "Open Pack" button after purchase
-                const openButton = this.nextElementSibling;
-                openButton.classList.remove("hidden");
-                this.disabled = true; // Disable the "Buy" button after purchase
-            } else {
-                alert("Not enough money!");
-            }
+                    // Show the "Open Pack" button if it exists
+                    const openButton = this.nextElementSibling;
+                    if (openButton && openButton.classList.contains("hidden")) {
+                        openButton.classList.remove("hidden");
+                    }
+                    this.disabled = true; // Disable the "Buy" button after purchase
+                } else {
+                    alert("Not enough money!");
+                }
+            });
         });
-    });
+    }
 });

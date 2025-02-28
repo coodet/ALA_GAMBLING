@@ -4,14 +4,16 @@ document.addEventListener("DOMContentLoaded", function () {
     ageForm.addEventListener("submit", function (event) {
         event.preventDefault(); 
 
-        const age = parseInt(document.getElementById("age").value);
+        const ageInput = document.getElementById("age").value.trim();
+        const age = parseInt(ageInput);
 
-        
+        // Validate that the input is a valid number and is positive
         if (isNaN(age) || age <= 0) {
             alert("Please enter a valid age.");
             return; 
         }
 
+        // Check if the age is greater than or equal to 21
         if (age >= 21) {
             localStorage.setItem("verified", "true"); 
             window.location.href = "index.html"; 

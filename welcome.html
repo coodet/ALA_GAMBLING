@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <head>
-        <link rel="icon" href="https://th.bing.com/th/id/OIP.O1PjBjKHFRkryLyBvU-DAAAAAA?rs=1&pid=ImgDetMain" type="image/png">
-      </head>
-      
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Chaos Dice</title>
+    <link rel="icon" href="https://th.bing.com/th/id/OIP.O1PjBjKHFRkryLyBvU-DAAAAAA?rs=1&pid=ImgDetMain" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -67,19 +64,23 @@
             loginForm.addEventListener("submit", function (event) {
                 event.preventDefault();
 
-                const username = document.getElementById("username").value;
-                const password = document.getElementById("password").value;
-                const age = parseInt(document.getElementById("age").value);
+                const username = document.getElementById("username").value.trim();
+                const age = Number(document.getElementById("age").value);
 
-                if (age >= 21) {
-                    localStorage.setItem("verified", "true");
-                    localStorage.setItem("username", username);
-                    localStorage.setItem("password", password);
-                    window.location.href = "index.html";
-                } else {
+                if (!username) {
+                    alert("Please enter a valid username.");
+                    return;
+                }
+
+                if (isNaN(age) || age < 21) {
                     alert("You must be at least 21 years old to enter.");
                     window.location.href = "https://www.fortismedia.com/en/articles/online-gambling-laws/";
+                    return;
                 }
+
+                localStorage.setItem("verified", "true");
+                localStorage.setItem("username", username);
+                window.location.href = "index.html";
             });
         });
     </script>
