@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const diceSection = document.getElementById("diceSection");
     const resultDisplay = document.getElementById("result");
 
-    // Add event listeners if elements exist
+    
     if (buyButton) buyButton.addEventListener("click", handlePurchase);
     if (rollButton) rollButton.addEventListener("click", rollDice);
 
@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const randomNumber = Math.floor(Math.random() * 6) + 1;
         resultDisplay.textContent = `🎲 You rolled a ${randomNumber}`;
 
-        // Reset animation
+        
         resultDisplay.style.animation = "none";
-        void resultDisplay.offsetWidth; // Trigger reflow to restart animation
+        void resultDisplay.offsetWidth; 
         resultDisplay.style.animation = "fadeIn 0.5s ease-in-out"; 
 
         setTimeout(() => {

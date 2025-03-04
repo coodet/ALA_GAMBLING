@@ -1,27 +1,27 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaos Dice - Home</title>
-    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="icon" href="https://media-hosting.imagekit.io//90bf132282e44d93/logo.png?Expires=1835364590&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1eJBhFC0NUbglSYNEPHwkoDNNHsv3DXCylVlMym3OWBcwJl-sRJovTCkU2r8GvfZui8mirO8aByFabbj-fkRtal1cbLci0IvlZk1JNCgOdLO6hjTfJyIH2e4~l4mJzlNEPrUdzVV8cZf41Ao1uWy1Daugni~rT~rHBn3NbzplBg-dutu1tD9-1Jx-jnXJJqF7XUcwwjR7equiZ0HQcch8KUT6YsBP6q4GnwgKhw6XfaUsPXfJOjrzr20E8srNCWThcnUAuQPBCOrONZ1awdwY5-zoFoU1i72FUFDsbLKZY2nQ5fibqV58OR2SxKjBaK7s6W8apJhQuXMBoL0EJc8rQ__" type="image/png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <script>
-        // Redirect unauthorized users
+        
         if (localStorage.getItem("verified") !== "true") {
             window.location.href = "welcome.html";
         }
     </script>
 
-    <!-- Wallet & User Info -->
+    
     <div class="wallet-container">
         <p><strong>Wallet:</strong> $<span id="walletAmount">0</span> | <strong>User:</strong> <span id="username">Guest</span></p>
         <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
 
-    <!-- Main Content -->
+    
     <div class="container">
         <h1>Welcome to Chaos Dice</h1>
         <p>Get ready for some chaotic fun! Buy your Chaos Dice pack and roll your fate.</p>
@@ -31,7 +31,7 @@
     </div>
 
     <script>
-        // Load wallet and username from local storage
+        
         document.addEventListener("DOMContentLoaded", function () {
             const walletDisplay = document.getElementById("walletAmount");
             const usernameDisplay = document.getElementById("username");
@@ -43,7 +43,7 @@
             usernameDisplay.textContent = username;
         });
 
-        // Logout function
+        
         function logout() {
             localStorage.removeItem("verified");
             window.location.href = "welcome.html";

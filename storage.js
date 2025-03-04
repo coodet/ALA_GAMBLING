@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Ensure wallet is stored correctly
+    
     let walletAmount = localStorage.getItem("wallet");
     walletAmount = walletAmount ? parseInt(walletAmount, 10) : 100;
 
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         walletDisplay.textContent = walletAmount;
     }
 
-    // Load purchased dice packs
+    
     const purchasedDice = JSON.parse(localStorage.getItem("purchasedDice")) || [];
     const storageList = document.getElementById("storageList");
 

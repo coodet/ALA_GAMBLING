@@ -4,24 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Storage - Chaos Dice</title>
-    <link rel="icon" href="https://th.bing.com/th/id/OIP.O1PjBjKHFRkryLyBvU-DAAAAAA?rs=1&pid=ImgDetMain" type="image/png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://media-hosting.imagekit.io//90bf132282e44d93/logo.png?Expires=1835364590&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1eJBhFC0NUbglSYNEPHwkoDNNHsv3DXCylVlMym3OWBcwJl-sRJovTCkU2r8GvfZui8mirO8aByFabbj-fkRtal1cbLci0IvlZk1JNCgOdLO6hjTfJyIH2e4~l4mJzlNEPrUdzVV8cZf41Ao1uWy1Daugni~rT~rHBn3NbzplBg-dutu1tD9-1Jx-jnXJJqF7XUcwwjR7equiZ0HQcch8KUT6YsBP6q4GnwgKhw6XfaUsPXfJOjrzr20E8srNCWThcnUAuQPBCOrONZ1awdwY5-zoFoU1i72FUFDsbLKZY2nQ5fibqV58OR2SxKjBaK7s6W8apJhQuXMBoL0EJc8rQ__" type="image/png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: white;
+            background-image: url('https://th.bing.com/th/id/R.2b365175eb09f1872d25bf37b572de48?rik=n9Ixpp5wKv%2ba6w&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f5%2fd%2f7%2f767118-dice-wallpaper-1920x1200-for-4k.jpg&ehk=L4xNmtdgkyU1VnquEFkGjLT6vfBEk27MRU2euJOThLE%3d&risl=&pid=ImgRaw&r=0');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+        }
+        
+        #wallet {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 50, 0, 0.8);
+            padding: 10px 15px;
+            color: #00ff00;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 2px solid #00ff00;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+        
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            max-width: 800px;
+            width: 90%;
+            margin: 20px auto;
+        }
+        
+        h1 {
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        button {
+            background-color: #00ff00;
+            color: black;
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            margin: 10px;
+        }
+        
+        button:hover {
+            background-color: #32cd32;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+        
+        #storageList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .dice-pack {
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            padding: 15px;
+            width: 200px;
+            transition: transform 0.3s ease;
+        }
+        
+        .dice-pack:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.3);
+        }
+        
+        .dice-pack h3 {
+            color: #00ff00;
+            margin-top: 0;
+        }
+        
+        .dice-pack p {
+            margin: 5px 0;
+        }
+        
+        .use-button {
+            background-color: #ff9900;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+        
+        .use-button:hover {
+            background-color: #ffaa33;
+        }
+        
+        .empty-message {
+            color: #aaa;
+            font-style: italic;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
     <div id="wallet">Wallet: $<span id="walletAmount">0</span></div>
 
     <div class="container">
         <h1>Your Dice Storage</h1>
-        <p>Here are the dice packs you’ve purchased:</p>
+        <p>Here are the dice packs you've purchased:</p>
         <div id="storageList">
-            <!-- Purchased dice packs will be displayed here -->
+            <!-- Dice packs will be added here dynamically -->
         </div>
 
         <a href="index.html"><button id="homeButton">Back to Home</button></a>
         <a href="shop.html"><button id="shopButton">Go to the Shop</button></a>
     </div>
 
-    <script src="wallet.js"></script>
-    <script src="storage.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize wallet
+            let walletAmount = localStorage.getItem("wallet") ? parseInt(localStorage.getItem("wallet")) : 100;
+            const walletDisplay = document.getElementById("walletAmount");
+            walletDisplay.textContent = walletAmount;
+            
+            // Function to update wallet
+            function updateWallet(amount) {
+                walletAmount += amount;
+                localStorage.setItem("wallet", walletAmount);
+                walletDisplay.textContent = walletAmount;
+            }
+            
+            // Get purchased packs from localStorage
+            const purchasedPacks = JSON.parse(localStorage.getItem("purchasedPacks")) || [];
+            const storageList = document.getElementById("storageList");
+            
+            // Display purchased packs or show empty message
+            if (purchasedPacks.length === 0) {
+                storageList.innerHTML = '<div class="empty-message">You haven\'t purchased any dice packs yet. Visit the shop to get started!</div>';
+            } else {
+                purchasedPacks.forEach((pack, index) => {
+                    const packElement = document.createElement("div");
+                    packElement.className = "dice-pack";
+                    
+                    // Create pack content
+                    packElement.innerHTML = `
+                        <h3>${pack.name}</h3>
+                        <p>Type: ${pack.type}</p>
+                        <p>Purchased: ${new Date(pack.purchaseDate).toLocaleDateString()}</p>
+                        <button class="use-button" data-index="${index}">Roll Dice</button>
+                    `;
+                    
+                    storageList.appendChild(packElement);
+                });
+                
+                // Add event listeners to use buttons
+                document.querySelectorAll(".use-button").forEach(button => {
+                    button.addEventListener("click", function() {
+                        const packIndex = parseInt(this.getAttribute("data-index"));
+                        const pack = purchasedPacks[packIndex];
+                        
+                        // Different rewards based on pack type
+                        let reward = 0;
+                        let diceResult = Math.floor(Math.random() * 6) + 1; // Roll a d6
+                        
+                        switch(pack.type) {
+                            case "Pack 1":
+                                // Basic pack: 50% chance to win $5-15
+                                if (Math.random() > 0.5) {
+                                    reward = Math.floor(Math.random() * 11) + 5;
+                                }
+                                break;
+                            case "Pack 2":
+                                // Medium pack: 60% chance to win $10-30
+                                if (Math.random() > 0.4) {
+                                    reward = Math.floor(Math.random() * 21) + 10;
+                                }
+                                break;
+                            case "Pack 3":
+                                // Premium pack: 75% chance to win $20-50
+                                if (Math.random() > 0.25) {
+                                    reward = Math.floor(Math.random() * 31) + 20;
+                                }
+                                break;
+                        }
+                        
+                        // Update wallet with any rewards
+                        if (reward > 0) {
+                            updateWallet(reward);
+                            alert(`You rolled a ${diceResult}! You won $${reward}!`);
+                        } else {
+                            alert(`You rolled a ${diceResult}. Better luck next time!`);
+                        }
+                        
+                        // Remove the used pack
+                        purchasedPacks.splice(packIndex, 1);
+                        localStorage.setItem("purchasedPacks", JSON.stringify(purchasedPacks));
+                        
+                        // Refresh the page to update the display
+                        location.reload();
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

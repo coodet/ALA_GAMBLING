@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: 'Arial', sans-serif;
     color: white;
@@ -13,10 +13,10 @@ body {
     align-items: center;
     justify-content: center;
     line-height: 1.6;
-    overflow-y: auto; /* Allows scrolling if content overflows */
+    overflow-y: auto; 
 }
 
-/* Wallet Display */
+
 #wallet {
     position: absolute;
     top: 10px;
@@ -31,10 +31,10 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* Main Container */
+
 .container {
     max-width: 90%;
-    width: 600px; /* Limits width for better readability */
+    width: 600px; 
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     background: rgba(0, 0, 0, 0.85);
@@ -44,7 +44,7 @@ body {
     animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Heading Styles */
+
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -53,7 +53,7 @@ h1 {
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
-/* Paragraph Styling */
+
 p {
     font-size: 1.2rem;
     font-weight: 400;
@@ -62,7 +62,7 @@ p {
     color: #ddd;
 }
 
-/* Button Styling */
+
 button {
     background-color: #00ff00;
     color: black;
@@ -82,7 +82,7 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Product Row */
+
 .product-row {
     display: flex;
     flex-wrap: wrap;
@@ -91,7 +91,7 @@ button:hover {
     margin-top: 20px;
 }
 
-/* Individual Product Box */
+
 .product {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.6);
@@ -107,21 +107,21 @@ button:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
 }
 
-/* Product Headings */
+
 .product h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: #00ff00;
 }
 
-/* Product Descriptions */
+
 .product p {
     font-size: 1rem;
     color: #ddd;
     margin-bottom: 20px;
 }
 
-/* Wallet and Storage Section */
+
 #storageList {
     margin-top: 20px;
     font-size: 1.2rem;
@@ -136,7 +136,7 @@ button:hover {
     margin-bottom: 10px;
 }
 
-/* Navigation Buttons */
+
 #homeButton, #shopButton, #storageButton {
     font-size: 1.2rem;
     background-color: #32cd32;
@@ -154,7 +154,7 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Logout Button */
+
 .logout-btn {
     padding: 8px 15px;
     font-size: 14px;
@@ -172,7 +172,7 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Animations */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -184,7 +184,7 @@ button:hover {
     }
 }
 
-/* Responsive Design */
+
 @media screen and (max-width: 768px) {
     .container {
         width: 90%;

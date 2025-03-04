@@ -12,12 +12,12 @@ if (rollButton) {
 function handlePurchase(event) {
     selectedPack = event.target.getAttribute('data-pack').match(/\d+/)[0]; // Extracts the pack number
 
-    // Hide all products
+    
     document.querySelectorAll('.product').forEach(product => {
         product.style.display = 'none';
     });
 
-    // Show dice section
+    
     const diceSection = document.getElementById('diceSection');
     if (diceSection) {
         diceSection.style.display = 'block';
